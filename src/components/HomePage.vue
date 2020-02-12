@@ -1,14 +1,21 @@
 <template>
     <div>
         <h2>Home Page</h2>
-        <div class="jumbotron">azeazeaz</div>
-        <a class="btn btn-primary">azeazeae</a>
+        <div class="jumbotron">{{favorites}}</div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HomePage'
+  name: 'HomePage',
+  data () {
+    return {
+      favorites: this.$store.getters.favorites
+    }
+  },
+  mounted () {
+    console.log(this.$store.getters.favorites)
+  }
 }
 </script>
 

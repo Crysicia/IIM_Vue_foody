@@ -1,8 +1,12 @@
 <template>
   <div id="app">
+    <div>
+      <label for="favorite">Favorite ice cream flavor?</label>
+      <input @input="changed" name="favorite">
+    </div>
+    <p>{{this.$store.getters.favorites}}</p>
     <router-link class="nav-link" to="login">Login</router-link>
     <router-view />
-    <p>{{meals}}</p>
   </div>
 </template>
 
@@ -22,6 +26,9 @@ export default {
       .then((result) => {
         this.meals = result.data
       })
+    },
+    changed: function(event) {
+      this.$store.commit('change', event.target.value)
     }
   },
   mounted() {
