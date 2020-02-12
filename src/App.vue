@@ -4,7 +4,6 @@
       <label for="favorite">Favorite ice cream flavor?</label>
       <input @input="changed" name="favorite">
     </div>
-    <p>{{this.$store.getters.favorites}}</p>
     <router-link class="nav-link" to="login">Login</router-link>
     <router-view />
   </div>
@@ -20,13 +19,6 @@ export default {
     }
   },
   methods: {
-    fetchMeals: function () {
-      const baseURI = 'https://www.themealdb.com/api/json/v1/1/random.php'
-      this.$http.get(baseURI)
-      .then((result) => {
-        this.meals = result.data
-      })
-    },
     changed: function(event) {
       this.$store.commit('change', event.target.value)
     }
