@@ -1,18 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HomePage/>
+    <router-link class="nav-link" to="login">Login</router-link>
+    <router-view />
   </div>
 </template>
 
 <script>
-import HomePage from './components/HomePage.vue'
 
 export default {
   name: 'App',
-  components: {
-    HomePage
-  }
 }
 </script>
 
