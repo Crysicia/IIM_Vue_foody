@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     fetchMeals: function () {
-      const baseURI = 'https://jsonplaceholder.typicode.com/users'
+      const baseURI = 'https://www.themealdb.com/api/json/v1/1/random.php'
       this.$http.get(baseURI)
       .then((result) => {
         this.meals = result.data
