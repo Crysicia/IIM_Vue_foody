@@ -2,6 +2,7 @@
   <div id="app">
     <router-link class="nav-link" to="login">Login</router-link>
     <router-view />
+    <p>{{meals}}</p>
   </div>
 </template>
 
@@ -9,6 +10,23 @@
 
 export default {
   name: 'App',
+  data () {
+    return {
+      meals: null
+    }
+  },
+  methods: {
+    fetchMeals: function () {
+      const baseURI = 'https://jsonplaceholder.typicode.com/users'
+      this.$http.get(baseURI)
+      .then((result) => {
+        this.meals = result.data
+      })
+    }
+  },
+  mounted() {
+    this.fetchMeals()
+  }
 }
 </script>
 
