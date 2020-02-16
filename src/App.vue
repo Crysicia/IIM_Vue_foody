@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <div>
-      <label for="favorite">Favorite ice cream flavor?</label>
-      <input @input="changed" name="favorite">
-    </div>
-    <router-link class="nav-link" to="login">Login</router-link>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <router-link class="navbar-brand" to="/">Foody</router-link>
+      
+      <input @input="changed" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+
+      <router-link class="nav-link float-right" to="/">Home</router-link>
+      <router-link class="nav-link float-right" to="/">Favorites</router-link>
+    </nav>
     <router-view />
   </div>
 </template>
@@ -13,18 +16,11 @@
 
 export default {
   name: 'App',
-  data () {
-    return {
-      meals: null
-    }
-  },
   methods: {
     changed: function(event) {
       this.$store.commit('change', event.target.value)
+      this.$router.push({ path: '/', query: { s: event.target.value } })
     }
-  },
-  mounted() {
-    this.fetchMeals()
   }
 }
 </script>
@@ -36,6 +32,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

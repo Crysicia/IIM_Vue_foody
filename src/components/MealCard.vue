@@ -5,8 +5,9 @@
       <div class="card-body">
           <h5 class="card-title">{{ title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ tags }}</h6>
-          <a href="#" class="btn btn-primary mb-2"> En savoir plus </a> <br>
-          <a href="#">Ajouter dans les favoris</a>
+          <router-link class="btn btn-primary mb-2" :to="`/meal/${id}`">En savoir plus</router-link>
+          <br>
+          <a href="#">Ajouter aux favoris</a>
       </div>
     </div>
   </div>
@@ -16,6 +17,7 @@
 export default {
   name: 'MealCard',
   props: [
+    'id',
     'title',
     'tags',
     'image'
