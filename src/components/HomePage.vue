@@ -1,13 +1,13 @@
 <template>
     <div>
-        <div v-if="!meals.meals">
-          <h2>There is no meals</h2>
+      <div v-if="!meals.meals">
+        <h2>There is no meals</h2>
+      </div>
+      <div class="row">
+        <div v-for="meal in meals.meals" :key="meal.idMeal">
+          <MealCard :image="meal.strMealThumb" :title="meal.strMeal" :tags="meal.strTags" :id="meal.idMeal" />
         </div>
-        <div class="row">
-          <div v-for="meal in meals.meals" :key="meal.idMeal">
-            <MealCard :image="meal.strMealThumb" :title="meal.strMeal" :tags="meal.strTags" :id="meal.idMeal" />
-          </div>
-        </div>
+      </div>
     </div>
 </template>
 

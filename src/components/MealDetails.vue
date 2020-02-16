@@ -25,7 +25,6 @@ export default {
 
       this.$http.get(baseURI)
       .then((result) => {
-        console.log(result)
         this.title = result.data.meals[0].strMeal
         this.recipe = result.data.meals[0].strInstructions
         this.image = result.data.meals[0].strMealThumb

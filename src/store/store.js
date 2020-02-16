@@ -5,11 +5,14 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    favorites: ''
+    favorites: ['52993']
   },
   mutations: {
-    change(state, favorite) {
-      state.favorites = favorite
+    add(state, favorite) {
+      state.favorites.push(favorite)
+    },
+    remove(state, favorite) {
+      state.favorites.splice(state.favorites.indexOf(favorite), 1)
     }
   },
   getters: {

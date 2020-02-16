@@ -6,7 +6,7 @@
       <input @input="changed" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
       <router-link class="nav-link float-right" to="/">Home</router-link>
-      <router-link class="nav-link float-right" to="/">Favorites</router-link>
+      <router-link class="nav-link float-right" to="/favorites">Favorites</router-link>
     </nav>
     <router-view />
   </div>
@@ -18,7 +18,6 @@ export default {
   name: 'App',
   methods: {
     changed: function(event) {
-      this.$store.commit('change', event.target.value)
       this.$router.push({ path: '/', query: { s: event.target.value } })
     }
   }

@@ -7,7 +7,8 @@
           <h6 class="card-subtitle mb-2 text-muted">{{ tags }}</h6>
           <router-link class="btn btn-primary mb-2" :to="`/meal/${id}`">En savoir plus</router-link>
           <br>
-          <a href="#">Ajouter aux favoris</a>
+          <a href="#" @click="$store.commit('add', id)" v-if="!favorite()">Ajouter aux favoris</a>
+          <a href="#" @click="$store.commit('remove', id)" v-else>Retirer des favoris</a>
       </div>
     </div>
   </div>
@@ -21,7 +22,12 @@ export default {
     'title',
     'tags',
     'image'
-  ]
+  ],
+  methods: {
+    favorite () {
+      return this.$store.getters.favorites.includes(this.id)
+    }
+  }
 }
 </script>
 
